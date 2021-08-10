@@ -3,12 +3,13 @@ import React, { useMemo } from 'react';
 import MiniClock from './MiniClock';
 import { Time } from '../types/Time';
 import { useParams } from 'react-router-dom';
+import { Params } from '../types/Params';
 
 interface ClockProps {
     digit?: number
 }
 function Clock({ digit = 0 }: ClockProps) {
-    const { theme } = useParams();
+    const { theme }: Params = useParams();
     const miniclocks: Time[][] = useMemo(() => [[
         // Digit 0
         { hours: 6, minutes: 15 },

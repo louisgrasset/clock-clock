@@ -3,10 +3,11 @@ import React, { useEffect, useMemo, useState } from 'react';
 import Clock from './components/Clock'
 import Separator from './components/Separator'
 import { useParams } from 'react-router-dom';
+import { Params } from './types/Params';
 
 function App() {
   const [date, setDate] = useState(new Date());
-  const { theme } = useParams();
+  const { theme }: Params = useParams();
 
   const hours = useMemo(() => {
     let digits = date.getHours().toString();

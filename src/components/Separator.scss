@@ -1,8 +1,14 @@
 .separator {
+    position: relative;
     font-size: 50px;
     font-weight: bold;
     margin: 0 40px;
+    color: #000;
     &--hidden {
         opacity: 0;
+    }
+    &--fives {
+        color: rgba(175,0,124);
+        position: relative;
     }
 }

@@ -1,4 +1,5 @@
 .mini-clock {
+    $at : &;
     --thickness: 4px;
     background: transparent;
     border-radius: 50%;
@@ -37,6 +38,15 @@
             }
             @for $hour from 0 to 13 {
                 &--#{$hour}{ transform: rotate(#{360 / 12 * $hour}deg);}
+            }
+        }
+    }
+
+    &--fives {
+        border-color: #ffffff20;
+        #{$at}{
+            &__hand {
+                background-color: rgb(175,0,124);
             }
         }
     }

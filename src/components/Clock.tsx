@@ -2,12 +2,13 @@ import './Clock.scss';
 import React, { useMemo } from 'react';
 import MiniClock from './MiniClock';
 import { Time } from '../types/Time';
+import { useParams } from 'react-router-dom';
 
 interface ClockProps {
     digit?: number
 }
 function Clock({ digit = 0 }: ClockProps) {
-
+    const { theme } = useParams();
     const miniclocks: Time[][] = useMemo(() => [[
         // Digit 0
         { hours: 6, minutes: 15 },
@@ -279,8 +280,8 @@ function Clock({ digit = 0 }: ClockProps) {
         { hours: 9, minutes: 0 },
     ],], []);
     return (
-        <div className="clock">
-            {miniclocks[digit].map((i, k) => <MiniClock key={k} miniclocks={miniclocks[digit][k]} />)}
+        <div className={"clock"}>
+            {miniclocks[digit].map((i, k) => <MiniClock theme={theme} key={k} miniclocks={miniclocks[digit][k]} />)}
         </div>
     )
 }

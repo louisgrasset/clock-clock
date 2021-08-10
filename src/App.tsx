@@ -1,10 +1,12 @@
 import './App.scss'
-import React, { useEffect, useMemo, useState } from 'react'
+import React, { useEffect, useMemo, useState } from 'react';
 import Clock from './components/Clock'
 import Separator from './components/Separator'
+import { useParams } from 'react-router-dom';
 
 function App() {
   const [date, setDate] = useState(new Date());
+  const { theme } = useParams();
 
   const hours = useMemo(() => {
     let digits = date.getHours().toString();
@@ -24,12 +26,15 @@ function App() {
   }, [date, setDate]);
 
   return (
-    <div className="app">
-      <Clock digit={hours[0]} />
-      <Clock digit={hours[1]} />
-      <Separator />
-      <Clock digit={minutes[0]} />
-      <Clock digit={minutes[1]} />
+    <div className={"app" + (theme ? ` app--${theme}` : "")}>
+      <div className="container">
+        <Clock digit={hours[0]} />
+        <Clock digit={hours[1]} />
+        <Separator />
+        <Clock digit={minutes[0]} />
+        <Clock digit={minutes[1]} />
+      </div>
+      <p className="attribution">Made by <a href="https://louisgrasset.fr" target="_blank">Louis Grasset</a></p>
     </div>
   )
 }

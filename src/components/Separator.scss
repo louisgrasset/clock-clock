@@ -1,0 +1,8 @@
+.separator {
+    font-size: 50px;
+    font-weight: bold;
+    margin: 0 40px;
+    &--hidden {
+        opacity: 0;
+    }
+}

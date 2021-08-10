@@ -1,0 +1,43 @@
+.mini-clock {
+    --thickness: 4px;
+    background: transparent;
+    border-radius: 50%;
+    height: 100%;
+    width: 100%;
+    border: var(--thickness) solid #fff;
+    position: relative;
+    box-sizing: border-box;
+    box-shadow: 2px -2px 3px rgba(0,0,0,0.1);
+    transform: rotate(-180deg);
+    &__hand {
+        border-radius: 1px;
+        transition: all 2s ease;
+        position: absolute;
+        top: calc(50% - var(--thickness)/2);
+        left: calc(50% - var(--thickness)/2);
+        width: var(--thickness);
+        background-color: #000;
+        transform-origin: 50% calc(var(--thickness) / 2);
+        &-minute{
+            transform-origin: 50% calc(var(--thickness) / 2);
+            height: 48%;
+            &---1 {
+                transform: rotate(0.6turn);
+            }
+            @for $minute from 0 to 61 {
+                &--#{$minute}{ transform: rotate(#{360 / 60 * $minute}deg);}
+            }
+        }
+        &-hour{
+            transform-origin: 50% calc(var(--thickness) / 2);
+            height: 44%;
+            transition-delay: .1s;
+            &---1 {
+                transform: rotate(0.6turn);
+            }
+            @for $hour from 0 to 13 {
+                &--#{$hour}{ transform: rotate(#{360 / 12 * $hour}deg);}
+            }
+        }
+    }
+}

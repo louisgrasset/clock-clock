@@ -1,0 +1,15 @@
+.clock {
+    --columns: 4;
+    --rows: 6;
+    --width: 50px;
+    --gap: 5px;
+    margin: 0 5px;
+    width: calc(var(--width) * var(--columns) + var(--gap) * (var(--columns) - 1));
+    height: calc(var(--height) * var(--rows) + var(--gap) * (var(--columns) - 1));
+    display: inline-grid;
+    column-gap: var(--gap);
+    row-gap: var(--gap);
+    grid-template-columns: repeat(var(--columns), var(--width));
+    grid-template-rows: repeat(var(--rows), var(--width));
+
+}
